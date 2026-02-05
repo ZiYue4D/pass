@@ -15,10 +15,6 @@ add_library(ZiYue4DPass SHARED RemoveUnusedStringPass.cpp ZiYue4DPass.def
         ZiYue4DPass.cpp
 )
 
-target_link_libraries(ZiYue4DPass PRIVATE
-        LLVMCore
-        LLVMSupport
-        LLVMPasses
-)
+llvm_map_components_to_libnames(llvm_libs core support passes)
 
 target_include_directories(ZiYue4DPass PRIVATE ${LLVM_INCLUDE_DIRS})
